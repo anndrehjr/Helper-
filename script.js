@@ -1,3 +1,10 @@
+// script.js
+
+document.addEventListener('DOMContentLoaded', function() {
+    const inicioSection = document.querySelector('.Inicio-001');
+    inicioSection.classList.add('animate');
+});
+
 const inputName = document.getElementById('inputName');
 const inputEmpresa = document.getElementById('inputEmpresa');
 const submitButton = document.getElementById('submitButton');
@@ -19,3 +26,4 @@ function toggleSubmitButton() {
 submitButton.addEventListener('click', function() {
     alert('Informações salvas com sucesso!');
 });
+

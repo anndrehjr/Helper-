@@ -3,39 +3,58 @@ body, html {
     padding: 0;
     height: 100%;
     font-family: Arial, sans-serif;
-    background-color: #121212; /* Cor de fundo do corpo da página em modo escuro */
-    color: #fff; /* Cor do texto em modo escuro */
+    background-color: #121212;
+    color: #fff;
 }
+/* style.css */
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+        
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.Inicio-001 {
+    animation: slideDown 3s ease-out forwards;
+}
+
+/* Outros estilos que você já tenha... */
 
 #Inicio {
     text-align: center;
-    margin: auto; /* Centraliza o conteúdo horizontalmente */
+    margin: auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100%; /* Garante que o conteúdo seja centralizado verticalmente */
+    height: 100%;
 }
 
 .Inicio-001 {
-    max-width: 100%; /* Largura máxima do formulário */
-    margin: 20px auto; /* Auto para centralizar horizontalmente */
+    max-width: 100%;
+    margin: 20px auto;
 }
 
 h1 {
-    color: #fff; /* Cor do título em modo escuro */
+    color: #fff;
     margin-bottom: 20px;
     font-size: 100px;
 }
 
 .form-group {
     margin-bottom: 20px;
-    text-align: center; /* Centralizar o conteúdo do formulário */
+    text-align: center;
 }
 
 label {
     font-size: 1.2em;
-    color: #aaa; /* Cor do rótulo em modo escuro */
+    color: #aaa;
     margin-bottom: 5px;
     display: block;
 }
@@ -43,6 +62,7 @@ label {
 input {
     background-color: transparent;
     color: #f5f5f5;
+    border-width: 0;
     border-bottom: 2px solid #222;
     outline: none;
     min-width: 100%;
@@ -50,10 +70,6 @@ input {
     text-align: center;
 }
 
-input:focus {
-    border-color: #007bff;
-    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.3);
-}
 
 button {
     width: 100%;
@@ -82,7 +98,7 @@ footer {
     position: fixed;
     bottom: 0;
     width: 100%;
-    background-color: rgba(90, 87, 87, 0.7); /* Cor de fundo com transparência */
+    background-color: rgba(90, 87, 87, 0.7);
     color: #fff;
     padding: 1px;
     justify-content: space-between;
