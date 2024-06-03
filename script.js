@@ -1,29 +1,22 @@
-// script.js
-
-document.addEventListener('DOMContentLoaded', function() {
-    const inicioSection = document.querySelector('.Inicio-001');
-    inicioSection.classList.add('animate');
-});
-
-const inputName = document.getElementById('inputName');
-const inputEmpresa = document.getElementById('inputEmpresa');
-const submitButton = document.getElementById('submitButton');
-
-// Esconder o botão de salvar inicialmente
-submitButton.style.display = 'none';
-
-inputName.addEventListener('input', toggleSubmitButton);
-inputEmpresa.addEventListener('input', toggleSubmitButton);
-
-function toggleSubmitButton() {
-    if (inputName.value.trim() !== '' && inputEmpresa.value.trim() !== '') {
-        submitButton.style.display = 'block';
-    } else {
-        submitButton.style.display = 'none';
-    }
+function salvarValores(event) {
+    event.preventDefault();
+  
+    const nome = document.getElementById('inputName').value;
+    const empresa = document.getElementById('inputEmpresa').value;
+  
+    // Armazenando os valores no localStorage
+    localStorage.setItem('inputName', nome);
+    localStorage.setItem('inputEmpresa', empresa);
+  
+    const novoRegistro = { nome, empresa };
+  
+    const registros = JSON.parse(localStorage.getItem('registros')) || [];
+    registros.push(novoRegistro);
+    localStorage.setItem('registros', JSON.stringify(registros));
+  
+    document.getElementById('inputName').value = '';
+    document.getElementById('inputEmpresa').value = '';
+  
+    alert('Dados adicionados com sucesso! Você será redirecionado para a lista de clientes.');
+    window.location.href = 'pagina-dois.html';
 }
-
-submitButton.addEventListener('click', function() {
-    alert('Informações salvas com sucesso!');
-});
-

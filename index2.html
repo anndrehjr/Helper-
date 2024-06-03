@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Botão de Cópia Personalizado</title>
+    <style>
+        .botao {
+            background-color: #4CAF50; /* Cor de fundo verde */
+            border: none; /* Remove borda */
+            color: white; /* Cor do texto */
+            padding: 15px 32px; /* Espaçamento interno */
+            text-align: center; /* Alinhamento do texto */
+            text-decoration: none; /* Remove sublinhado */
+            display: inline-block; /* Exibição inline-bloco */
+            font-size: 16px; /* Tamanho da fonte */
+            margin: 4px 2px; /* Margens */
+            cursor: pointer; /* Cursor do mouse em formato de mão */
+            border-radius: 8px; /* Borda arredondada */
+        }
+        .inputs {
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Mensagem com Botão</h2>
+<div class="inputs">
+    <label for="inputNome">Nome:</label>
+    <input type="text" id="inputNome" name="inputNome">
+</div>
+<div class="inputs">
+    <label for="inputEmpresa">Empresa:</label>
+    <input type="text" id="inputEmpresa" name="inputEmpresa">
+</div>
+<button class="botao" onclick="copiarMensagem()">Bom Dia!</button>
+
+<script>
+    function copiarMensagem() {
+        // Pega os valores dos campos de entrada
+        var nome = document.getElementById('inputNome').value;
+        var empresa = document.getElementById('inputEmpresa').value;
+
+        // Monta a mensagem personalizada
+        var mensagem = `Bom dia! aqui é o ${nome} do suporte da ${empresa}, tudo bom?`;
+        
+        // Cria um elemento temporário para armazenar o texto
+        var elementoTemporario = document.createElement('textarea');
+        elementoTemporario.value = mensagem;
+        
+        // Adiciona o elemento temporário ao body
+        document.body.appendChild(elementoTemporario);
+        
+        // Seleciona o texto no elemento temporário
+        elementoTemporario.select();
+        
+        // Executa o comando de cópia
+        document.execCommand('copy');
+        
+        // Remove o elemento temporário do body
+        document.body.removeChild(elementoTemporario);
+        
+        // Alerta de sucesso (opcional)
+        alert('Mensagem copiada para a área de transferência!');
+    }
+</script>
+
+</body>
+</html>
