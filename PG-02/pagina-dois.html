@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nome da Loja</title>
+    <link rel="stylesheet" href="pagina-dois.css">
+</head>
+<body>
+    <div class="barra_de_menu">
+        <button id="voltar-btn" onclick="window.location.href = '../PG-01/index.html';">
+            <img src="ampliacao.gif" width="50" height="50" fill="currentColor">
+        </button>
+    </div>
+    <div class="Menu-Mensagens">
+        <button class="btn" onclick="copiarMensagem('manha')">Bom Dia!</button>
+        <button class="btn" onclick="copiarMensagem('tarde')">Boa Tarde!</button>
+        <button class="btn" onclick="copiarMensagem('noite')">Boa Noite!</button>
+        <button class="btn" onclick="copiarMensagem('duvida')">Pergunta Dúvida</button>
+        <button class="btn" onclick="copiarMensagem('explica')">Explica Melhor</button>
+        <button class="btn" onclick="copiarMensagem('encerrar')">Encerrar</button>
+        <textarea id="mensagem" rows="10" cols="10" placeholder="Digite sua mensagem aqui..."></textarea><br><br>
+        <button onclick="salvarMensagem()">Salvar Mensagem</button>
+        <p id="mensagemSalva"></p>
+    </div>
+    <footer>
+        © Andre Junior ~ Dev 
+    </footer>
+    <script src="pagina-dois.js"></script>
+</body>
+</html>

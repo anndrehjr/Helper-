@@ -18,5 +18,5 @@ function salvarValores(event) {
     document.getElementById('inputEmpresa').value = '';
   
     alert('Dados adicionados com sucesso! Você será redirecionado para a lista de clientes.');
-    window.location.href = 'pagina-dois.html';
+    window.location.href = '../PG-02/pagina-dois.html';
 }
