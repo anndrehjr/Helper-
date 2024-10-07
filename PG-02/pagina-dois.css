@@ -1,68 +1,102 @@
+/* Importando Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
 /* Estilos gerais */
 body {
-  font-family: Arial, sans-serif;
-  background-color: #f0f0f0;
+  font-family: 'Poppins', Arial, sans-serif;
+  background-color: #f4f6f9;
   margin: 0;
   padding: 0;
+  color: #333;
+  line-height: 1.6;
 }
 
+/* Estilo da barra de menu */
 .barra_de_menu {
   background-color: #333;
   color: white;
-  padding: 10px;
+  padding: 15px;
   text-align: left;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .barra_de_menu button {
   background: none;
   border: none;
   cursor: pointer;
+  color: white;
+  font-size: 1.2em;
+  padding: 10px;
+  transition: color 0.3s ease;
 }
 
-.barra_de_menu img {
-  vertical-align: middle;
+.barra_de_menu button:hover {
+  color: #00aaff;
 }
 
-/* Estilo dos botões com animação */
-.Menu-Mensagens .btn,
-#adicionarQuadroBtn,
-#botaoSalvarMensagem {
+/* Estilo do menu de mensagens */
+.Menu-Mensagens {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 15px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 15px;
+}
+
+.Menu-Mensagens .btn {
   background-color: #007BFF;
   color: white;
   border: none;
-  padding: 10px 20px;
+  padding: 12px 18px;
   margin: 5px;
   cursor: pointer;
   border-radius: 5px;
+  font-weight: 600;
   transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.Menu-Mensagens .btn:hover,
-#adicionarQuadroBtn:hover,
-#botaoSalvarMensagem:hover {
+.Menu-Mensagens .btn:hover {
   background-color: #0056b3;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 
+.Menu-Mensagens .btn i {
+  margin-right: 8px;
+}
+
+/* Botões de editar e excluir com tamanho reduzido e ícones */
 .Menu-Mensagens .btn-editar,
 .Menu-Mensagens .btn-excluir {
   background-color: #6c757d;
   color: white;
   border: none;
-  padding: 5px 10px;
+  padding: 4px 8px; /* Reduzido para botões pequenos */
   margin: 5px;
   cursor: pointer;
   border-radius: 5px;
+  font-size: 12px; /* Tamanho de texto reduzido */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px; /* Definido para tamanho pequeno */
+  height: 30px; /* Quadrado e pequeno */
   transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+/* Estilo do botão de editar */
 .Menu-Mensagens .btn-editar:hover {
   background-color: #5a6268;
   transform: translateY(-2px);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
+/* Estilo do botão de excluir */
 .Menu-Mensagens .btn-excluir {
   background-color: #dc3545;
 }
@@ -73,34 +107,28 @@ body {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-.mensagem-container {
-  display: flex;
-  align-items: center;
-  margin-top: 10px;
-  background-color: #e9ecef;
-  padding: 10px;
-  border-radius: 5px;
+/* Adicionando ícones usando Font Awesome */
+.Menu-Mensagens .btn-editar::before {
+  content: '\f044'; /* Ícone de lápis do Font Awesome */
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
 }
 
-.mensagem-container button {
-  margin-left: 10px;
+.Menu-Mensagens .btn-excluir::before {
+  content: '\f00d'; /* Ícone de X do Font Awesome */
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
 }
 
-#titulo, #mensagem {
-  width: calc(100% - 40px);
-  padding: 10px;
-  margin: 10px 20px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 14px;
-}
 
+/* Estilos para o formulário de adicionar quadro */
 #novoQuadroForm {
   background-color: #fff;
-  padding: 20px;
+  padding: 25px;
   border: 1px solid #ddd;
-  margin: 20px;
-  border-radius: 5px;
+  margin: 20px auto;
+  border-radius: 8px;
+  max-width: 500px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: box-shadow 0.3s ease;
 }
@@ -109,12 +137,105 @@ body {
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
-#mensagemSalva {
-  color: green;
-  text-align: center;
+#titulo, #mensagem {
+  width: calc(100% - 40px);
+  padding: 12px;
+  margin: 10px 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  background-color: #f8f9fa;
+  transition: border-color 0.3s ease;
 }
 
-/* Animações nos botões da barra de menu */
+#titulo:focus, #mensagem:focus {
+  border-color: #007BFF;
+}
+
+#botaoSalvarMensagem {
+  background-color: #28a745;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#botaoSalvarMensagem:hover {
+  background-color: #218838;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Mensagem de sucesso */
+#mensagemSalva {
+  color: #28a745;
+  text-align: center;
+  margin-top: 10px;
+  font-size: 1em;
+  font-weight: 600;
+}
+
+/* Estilo para os quadros adicionados */
+.quadros-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 15px;
+  padding: 15px;
+  margin-bottom: 60px;
+}
+
+.quadro {
+  background-color: white;
+  border: 1px solid #ddd;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.quadro:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.quadro .actions {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+}
+
+.quadro .actions button {
+  background-color: #6c757d;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.quadro .actions button:hover {
+  background-color: #5a6268;
+}
+
+/* Estilo do rodapé */
+footer {
+  text-align: center;
+  padding: 15px;
+  background-color: #333;
+  color: white;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  font-size: 0.9em;
+  box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Animação de hover nos botões */
 .barra_de_menu button::after {
   content: '';
   display: block;
@@ -126,38 +247,4 @@ body {
 
 .barra_de_menu button:hover::after {
   width: 100%;
-}
-
-.quadros-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  padding: 10px;
-}
-
-.quadro {
-  border: 1px solid #ccc;
-  padding: 10px;
-  width: 200px;
-  position: relative;
-}
-
-.quadro .actions {
-  position: absolute;
-  bottom: 10px;
-  right: 10px;
-}
-
-.quadro .actions button {
-  margin-left: 5px;
-}
-
-footer {
-  text-align: center;
-  padding: 10px;
-  background-color: #333;
-  color: white;
-  position: fixed;
-  width: 100%;
-  bottom: 0;
 }

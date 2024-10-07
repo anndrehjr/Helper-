@@ -4,7 +4,9 @@ function copiarMensagem(periodo) {
     var empresa = localStorage.getItem('inputEmpresa');
 
     if (nome && empresa) {
-        var saudacao;
+        var saudacao = '';
+        var mensagem;
+
         switch (periodo) {
             case 'manha':
                 saudacao = 'Bom dia';
@@ -16,20 +18,23 @@ function copiarMensagem(periodo) {
                 saudacao = 'Boa noite';
                 break;
             case 'duvida':
-                saudacao = 'Como posso ajudar?';
+                mensagem = 'Como posso ajudar?';
                 break;
             case 'explica':
-                saudacao = 'Não consegui entender direito, poderia me explicar melhor? Se preferir pode mandar áudio.?';
+                mensagem = 'Não consegui entender direito, poderia me explicar melhor? Se preferir pode mandar áudio.?';
                 break;
             case 'encerrar':
-                saudacao = 'Vou estar encerrando o chat aqui então, qualquer coisa estamos a disposição, tenha um ótimo dia! 😊';
+                mensagem = 'Vou estar encerrando o chat aqui então, qualquer coisa estamos à disposição, tenha um ótimo dia! 😊';
                 break;
             default:
                 saudacao = 'Olá';
         }
 
-        var mensagem = `${saudacao} Aqui é o ${nome} do suporte da ${empresa}, tudo bem?`;
+        if (saudacao) {
+            mensagem = `${saudacao} Aqui é o ${nome} do suporte da ${empresa}, tudo bem?`;
+        }
 
+        // Copiar a mensagem
         var elementoTemporario = document.createElement('textarea');
         elementoTemporario.value = mensagem;
 
@@ -43,6 +48,7 @@ function copiarMensagem(periodo) {
         alert('Por favor, preencha o nome e o nome da empresa antes de copiar a mensagem!');
     }
 }
+
 
 function mostrarFormulario() {
     document.getElementById('novoQuadroForm').style.display = 'block';
@@ -79,14 +85,14 @@ function adicionarBotaoMensagem(titulo, mensagem) {
 
     var botaoEditar = document.createElement('button');
     botaoEditar.className = 'btn-editar';
-    botaoEditar.innerText = 'Editar';
+    botaoEditar.innerText = '';
     botaoEditar.onclick = function() {
         editarMensagem(titulo, mensagem, botao);
     };
 
     var botaoExcluir = document.createElement('button');
     botaoExcluir.className = 'btn-excluir';
-    botaoExcluir.innerText = 'Excluir';
+    botaoExcluir.innerText = '';
     botaoExcluir.onclick = function() {
         excluirMensagem(titulo, divBotao);
     };

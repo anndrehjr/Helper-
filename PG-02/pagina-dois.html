@@ -5,32 +5,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nome da Loja</title>
     <link rel="stylesheet" href="pagina-dois.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
 </head>
 <body>
     <div class="barra_de_menu">
+        <!-- Botão para voltar -->
         <button id="voltar-btn" onclick="window.location.href = '../PG-01/index.html';">
-            <img src="ampliacao.gif" width="50" height="50" fill="currentColor">
+            <i class="fas fa-arrow-left"></i> <!-- Ícone de seta para voltar -->
         </button>
-        <button id="adicionarQuadroBtn" class="btn" onclick="mostrarFormulario()">Adicionar Quadro</button>
+        <!-- Botão para adicionar quadro -->
+        <button id="adicionarQuadroBtn" class="btn" onclick="mostrarFormulario()">
+            <i class="fas fa-plus"></i> Adicionar Quadro
+        </button>
     </div>
+
     <div class="Menu-Mensagens" id="menuMensagens">
-        <div><button class="btn" onclick="copiarMensagem('manha')">Bom Dia!</button></div>
-        <div><button class="btn" onclick="copiarMensagem('tarde')">Boa Tarde!</button></div>
-        <div><button class="btn" onclick="copiarMensagem('noite')">Boa Noite!</button></div>
-        <div><button class="btn" onclick="copiarMensagem('duvida')">Pergunta Dúvida</button></div>
-        <div><button class="btn" onclick="copiarMensagem('explica')">Explica Melhor</button></div>
-        <div><button class="btn" onclick="copiarMensagem('encerrar')">Encerrar</button></div>
+        <!-- Mensagens com ícones -->
+        <div><button class="btn" onclick="copiarMensagem('manha')"><i class="fas fa-sun"></i> Bom Dia!</button></div>
+        <div><button class="btn" onclick="copiarMensagem('tarde')"><i class="fas fa-cloud-sun"></i> Boa Tarde!</button></div>
+        <div><button class="btn" onclick="copiarMensagem('noite')"><i class="fas fa-moon"></i> Boa Noite!</button></div>
+        <div><button class="btn" onclick="copiarMensagem('duvida')"><i class="fas fa-question"></i> Pergunta Dúvida</button></div>
+        <div><button class="btn" onclick="copiarMensagem('explica')"><i class="fas fa-info-circle"></i> Explica Melhor</button></div>
+        <div><button class="btn" onclick="copiarMensagem('encerrar')"><i class="fas fa-times-circle"></i> Encerrar</button></div>
     </div>
+
     <div id="novoQuadroForm" style="display: none;">
         <input id="titulo" placeholder="Digite o título aqui..." maxlength="30"><br>
         <textarea id="mensagem" rows="4" cols="30" placeholder="Digite sua mensagem aqui (máximo 200 caracteres)..." maxlength="200"></textarea><br>
-        <button id="botaoSalvarMensagem" onclick="salvarMensagem()">Salvar Mensagem</button>
+        <button id="botaoSalvarMensagem" onclick="salvarMensagem()">
+            <i class="fas fa-save"></i> Salvar Mensagem
+        </button>
         <p id="mensagemSalva"></p>
     </div>
+
     <div id="quadrosContainer" class="quadros-container"></div>
+
     <footer>
         © Andre Junior ~ Dev 
     </footer>
+
     <script src="pagina-dois.js"></script>
+    
 </body>
 </html>
