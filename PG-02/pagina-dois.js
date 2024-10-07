@@ -1,3 +1,4 @@
+// script.js
 function copiarMensagem(periodo) {
     var nome = localStorage.getItem('inputName');
     var empresa = localStorage.getItem('inputEmpresa');
@@ -43,6 +44,10 @@ function copiarMensagem(periodo) {
     }
 }
 
+function mostrarFormulario() {
+    document.getElementById('novoQuadroForm').style.display = 'block';
+}
+
 function salvarMensagem() {
     var titulo = document.getElementById('titulo').value;
     var mensagem = document.getElementById('mensagem').value;
@@ -54,7 +59,6 @@ function salvarMensagem() {
         document.getElementById('titulo').value = '';
         document.getElementById('mensagem').value = '';
         document.getElementById('novoQuadroForm').style.display = 'none';
-        document.getElementById('adicionarQuadroBtn').style.display = 'block';
     } else {
         alert('O título deve ter até 30 caracteres e a mensagem deve ter até 200 caracteres.');
     }
@@ -137,9 +141,4 @@ window.onload = function() {
     mensagensSalvas.forEach(function(mensagemObj) {
         adicionarBotaoMensagem(mensagemObj.titulo, mensagemObj.mensagem);
     });
-
-    document.getElementById('adicionarQuadroBtn').onclick = function() {
-        document.getElementById('novoQuadroForm').style.display = 'block';
-        document.getElementById('adicionarQuadroBtn').style.display = 'none';
-    }
 }

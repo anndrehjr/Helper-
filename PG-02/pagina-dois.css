@@ -23,40 +23,59 @@ body {
   vertical-align: middle;
 }
 
-.Menu-Mensagens {
-  padding: 20px;
-  background-color: #fff;
-  border: 1px solid #ddd;
-  margin: 20px;
-  border-radius: 5px;
-}
-
-.Menu-Mensagens .btn {
+/* Estilo dos botões com animação */
+.Menu-Mensagens .btn,
+#adicionarQuadroBtn,
+#botaoSalvarMensagem {
   background-color: #007BFF;
   color: white;
   border: none;
   padding: 10px 20px;
   margin: 5px;
   cursor: pointer;
-  border-radius: 3px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.Menu-Mensagens .btn-editar, .Menu-Mensagens .btn-excluir {
+.Menu-Mensagens .btn:hover,
+#adicionarQuadroBtn:hover,
+#botaoSalvarMensagem:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.Menu-Mensagens .btn-editar,
+.Menu-Mensagens .btn-excluir {
   background-color: #6c757d;
   color: white;
   border: none;
   padding: 5px 10px;
   margin: 5px;
   cursor: pointer;
-  border-radius: 3px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.Menu-Mensagens .btn-editar:hover {
+  background-color: #5a6268;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .Menu-Mensagens .btn-excluir {
   background-color: #dc3545;
 }
 
+.Menu-Mensagens .btn-excluir:hover {
+  background-color: #c82333;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
 .mensagem-container {
-  display: block;
+  display: flex;
+  align-items: center;
   margin-top: 10px;
   background-color: #e9ecef;
   padding: 10px;
@@ -64,9 +83,7 @@ body {
 }
 
 .mensagem-container button {
-  margin: 5px 0 0 0;
-  display: block;
-  width: 100%;
+  margin-left: 10px;
 }
 
 #titulo, #mensagem {
@@ -84,6 +101,55 @@ body {
   border: 1px solid #ddd;
   margin: 20px;
   border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+}
+
+#novoQuadroForm:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+#mensagemSalva {
+  color: green;
+  text-align: center;
+}
+
+/* Animações nos botões da barra de menu */
+.barra_de_menu button::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 2px;
+  background: white;
+  transition: width 0.3s;
+}
+
+.barra_de_menu button:hover::after {
+  width: 100%;
+}
+
+.quadros-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 10px;
+}
+
+.quadro {
+  border: 1px solid #ccc;
+  padding: 10px;
+  width: 200px;
+  position: relative;
+}
+
+.quadro .actions {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+}
+
+.quadro .actions button {
+  margin-left: 5px;
 }
 
 footer {
@@ -94,9 +160,4 @@ footer {
   position: fixed;
   width: 100%;
   bottom: 0;
-}
-
-#mensagemSalva {
-  color: green;
-  text-align: center;
 }

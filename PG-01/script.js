@@ -17,6 +17,16 @@ function salvarValores(event) {
     document.getElementById('inputName').value = '';
     document.getElementById('inputEmpresa').value = '';
   
-    alert('Dados adicionados com sucesso! Você será redirecionado para a lista de clientes.');
-    window.location.href = '../PG-02/pagina-dois.html';
+    Swal.fire({
+        title: 'Dados adicionados com sucesso!',
+        text: 'Você será redirecionado para a lista de clientes.',
+        icon: 'success',
+        confirmButtonText: 'OK'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            window.location.href = '../PG-02/pagina-dois.html'; // Substitua pela URL correta
+        }
+    });
+    
+   
 }
