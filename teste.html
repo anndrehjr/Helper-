@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exemplos Profissionais de Toast e Alert</title>
+  <!-- Link para Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Link para SweetAlert2 CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+  <style>
+    /* Estilo para os Toasts */
+    .toast-container {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 9999;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container mt-5">
+    <h1 class="text-center">Exemplos Profissionais de Toast e Alert</h1>
+    
+    <div class="d-flex justify-content-center mt-4">
+      <!-- Botões para Toasts -->
+      <button class="btn btn-primary mx-2" onclick="showToast(1)">Mostrar Toast 1</button>
+      <button class="btn btn-primary mx-2" onclick="showToast(2)">Mostrar Toast 2</button>
+      <button class="btn btn-primary mx-2" onclick="showToast(3)">Mostrar Toast 3</button>
+      <button class="btn btn-primary mx-2" onclick="showToast(4)">Mostrar Toast 4</button>
+      <button class="btn btn-primary mx-2" onclick="showToast(5)">Mostrar Toast 5</button>
+    </div>
+
+    <div class="d-flex justify-content-center mt-4">
+      <!-- Botões para Alerts -->
+      <button class="btn btn-success mx-2" onclick="showAlert(1)">Mostrar Alert 1</button>
+      <button class="btn btn-success mx-2" onclick="showAlert(2)">Mostrar Alert 2</button>
+      <button class="btn btn-success mx-2" onclick="showAlert(3)">Mostrar Alert 3</button>
+      <button class="btn btn-success mx-2" onclick="showAlert(4)">Mostrar Alert 4</button>
+      <button class="btn btn-success mx-2" onclick="showAlert(5)">Mostrar Alert 5</button>
+    </div>
+  </div>
+
+  <!-- Container para Toasts -->
+  <div class="toast-container">
+    <div id="toast1" class="toast align-items-center text-bg-success" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="d-flex">
+        <div class="toast-body">Toast 1: Ação concluída com sucesso!</div>
+        <button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast"></button>
+      </div>
+    </div>
+    <div id="toast2" class="toast align-items-center text-bg-danger" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="d-flex">
+        <div class="toast-body">Toast 2: Erro ao processar a ação!</div>
+        <button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast"></button>
+      </div>
+    </div>
+    <div id="toast3" class="toast align-items-center text-bg-warning" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="d-flex">
+        <div class="toast-body">Toast 3: Dados salvos com sucesso!</div>
+        <button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast"></button>
+      </div>
+    </div>
+    <div id="toast4" class="toast align-items-center text-bg-info" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="d-flex">
+        <div class="toast-body">Toast 4: Conexão estabelecida!</div>
+        <button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast"></button>
+      </div>
+    </div>
+    <div id="toast5" class="toast align-items-center text-bg-primary" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="d-flex">
+        <div class="toast-body">Toast 5: Operação realizada!</div>
+        <button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast"></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Link para Bootstrap JS e SweetAlert2 -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script>
+    // Função para mostrar os Toasts
+    function showToast(toastNumber) {
+      var toast = new bootstrap.Toast(document.getElementById('toast' + toastNumber));
+      toast.show();
+    }
+
+    // Funções para mostrar os Alerts usando SweetAlert2
+    function showAlert(alertNumber) {
+      switch(alertNumber) {
+        case 1:
+          Swal.fire('Alert 1', 'Você clicou no primeiro botão!', 'success');
+          break;
+        case 2:
+          Swal.fire('Alert 2', 'Erro encontrado!', 'error');
+          break;
+        case 3:
+          Swal.fire('Alert 3', 'Ação bem-sucedida!', 'success');
+          break;
+        case 4:
+          Swal.fire('Alert 4', 'Confirmar exclusão?', 'warning');
+          break;
+        case 5:
+          Swal.fire('Alert 5', 'Dados enviados!', 'info');
+          break;
+        default:
+          Swal.fire('Erro', 'Erro desconhecido!', 'error');
+      }
+    }
+  </script>
+</body>
+</html>

@@ -40,12 +40,14 @@ body, html {
 
 /* Estilo do h1 com borda nas letras */
 h1 {
+    font-family: 'Lato', sans-serif;
     color: #fff;
     margin-bottom: 20px;
     font-size: 100px;
-    -webkit-text-stroke: 2px rgb(240, 2, 2); /* Borda ao redor das letras para WebKit */
+    -webkit-text-stroke: 2px rgb(142, 39, 226); /* Borda ao redor das letras para WebKit */
     text-shadow: 2px 2px 4px black; /* Alternativa com sombra para outros navegadores */
 }
+
 
 .form-group {
     margin-bottom: 20px;
