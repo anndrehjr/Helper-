@@ -3,303 +3,323 @@
 
 /* Estilos gerais */
 body {
-  font-family: 'Poppins', Arial, sans-serif;
-  background-color: #f4f6f9;
-  margin: 0;
-  padding: 0;
-  color: #333;
-  line-height: 1.6;
+    font-family: 'Poppins', Arial, sans-serif;
+    background-color: #f4f6f9;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    line-height: 1.6;
 }
 
 /* Estilo da barra de menu */
 .barra_de_menu {
-  background-color: #333;
-  color: white;
-  padding: 15px;
-  text-align: left;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+    background-color: #000;
+    color: white;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .barra_de_menu button {
-  background: none;
-  border: none;
-  cursor: pointer;
-  color: white;
-  font-size: 1.2em;
-  padding: 10px;
-  transition: color 0.3s ease;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: white;
+    font-size: 1.2em;
+    padding: 10px;
+    transition: color 0.3s ease;
 }
 
 .barra_de_menu button:hover {
-  color: #00aaff;
+    color: #ff0000;
 }
 
 /* Estilo do menu de mensagens */
 .Menu-Mensagens {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  padding: 15px;
-  background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  margin: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 15px;
+    background-color: #fff;
+    border: 3px solid #bb170b;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 15px;
 }
 
 .Menu-Mensagens .btn {
-  background-color: #007BFF;
-  color: white;
-  border: none;
-  padding: 12px 18px;
-  margin: 5px;
-  cursor: pointer;
-  border-radius: 5px;
-  font-weight: 600;
-  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: #f53535;
+    color: white;
+    border: none;
+    width: 360px;
+    height: 90px;
+    margin: 5px;
+    cursor: pointer;
+    border-radius: 4px;
+    font-weight: 500;
+    font-size: 20px;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .Menu-Mensagens .btn:hover {
-  background-color: #0056b3;
-  transform: translateY(-3px);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    background-color: #d48074;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-.Menu-Mensagens .btn i {
-  margin-right: 8px;
-}
-
-/* Botões de editar e excluir com tamanho reduzido e ícones */
+/* Botões de editar e excluir */
 .Menu-Mensagens .btn-editar,
 .Menu-Mensagens .btn-excluir {
-  background-color: #6c757d;
-  color: white;
-  border: none;
-  padding: 4px 8px; /* Reduzido para botões pequenos */
-  margin: 5px;
-  cursor: pointer;
-  border-radius: 5px;
-  font-size: 12px; /* Tamanho de texto reduzido */
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 30px; /* Definido para tamanho pequeno */
-  height: 30px; /* Quadrado e pequeno */
-  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: #6c757d;
+    color: white;
+    border: none;
+    padding: 4px 8px;
+    margin: 5px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 12px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Estilo do botão de editar */
 .Menu-Mensagens .btn-editar:hover {
-  background-color: #5a6268;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background-color: #5a6268;
 }
 
-/* Estilo do botão de excluir */
 .Menu-Mensagens .btn-excluir {
-  background-color: #dc3545;
+    background-color: #dc3545;
 }
 
 .Menu-Mensagens .btn-excluir:hover {
-  background-color: #c82333;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background-color: #c82333;
 }
 
 /* Adicionando ícones usando Font Awesome */
 .Menu-Mensagens .btn-editar::before {
-  content: '\f044'; /* Ícone de lápis do Font Awesome */
-  font-family: 'Font Awesome 5 Free';
-  font-weight: 900;
+    content: '\f044';
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
 }
 
 .Menu-Mensagens .btn-excluir::before {
-  content: '\f00d'; /* Ícone de X do Font Awesome */
-  font-family: 'Font Awesome 5 Free';
-  font-weight: 900;
+    content: '\f00d';
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
 }
-
 
 /* Estilos para o formulário de adicionar quadro */
 #novoQuadroForm {
-  background-color: #fff;
-  padding: 25px;
-  border: 1px solid #ddd;
-  margin: 20px auto;
-  border-radius: 8px;
-  max-width: 500px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: box-shadow 0.3s ease;
-}
-
-#novoQuadroForm:hover {
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    background-color: #070303;
+    padding: 25px;
+    border: 3px solid #bb170b;
+    margin: 20px auto;
+    border-radius: 10px;
+    max-width: 500px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 #titulo, #mensagem {
-  width: calc(100% - 40px);
-  padding: 12px;
-  margin: 10px 20px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 16px;
-  background-color: #f8f9fa;
-  transition: border-color 0.3s ease;
+    width: calc(100% - 40px);
+    padding: 12px;
+    margin: 10px 20px;
+    border: 1px solid #f10707;
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: #f8f9fa;
+    transition: border-color 0.3s ease;
 }
-
+  
 #titulo:focus, #mensagem:focus {
-  border-color: #007BFF;
+    border-color: #007BFF;
 }
 
 #botaoSalvarMensagem {
-  background-color: #28a745;
-  color: white;
-  padding: 10px 15px;
-  border-radius: 5px;
-  border: none;
-  cursor: pointer;
-  font-weight: 600;
-  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: #ff0000;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 #botaoSalvarMensagem:hover {
-  background-color: #218838;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background-color: #dc3545;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 /* Mensagem de sucesso */
 #mensagemSalva {
-  color: #28a745;
-  text-align: center;
-  margin-top: 10px;
-  font-size: 1em;
-  font-weight: 600;
-}
-
-/* Estilo para os quadros adicionados */
-.quadros-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 15px;
-  padding: 15px;
-  margin-bottom: 60px;
-}
-
-.quadro {
-  background-color: white;
-  border: 1px solid #ddd;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  position: relative;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.quadro:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-}
-
-.quadro .actions {
-  position: absolute;
-  bottom: 10px;
-  right: 10px;
-}
-
-.quadro .actions button {
-  background-color: #6c757d;
-  border: none;
-  padding: 8px 12px;
-  border-radius: 4px;
-  color: white;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.quadro .actions button:hover {
-  background-color: #5a6268;
+    color: #28a745;
+    text-align: center;
+    margin-top: 10px;
+    font-size: 1em;
+    font-weight: 600;
 }
 
 /* Estilo do rodapé */
 footer {
-  text-align: center;
-  padding: 15px;
-  background-color: #333;
-  color: white;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  font-size: 0.9em;
-  box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    padding: 15px;
+    background-color: #333;
+    color: white;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    font-size: 0.9em;
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
 }
 
 /* Animação de hover nos botões */
 .barra_de_menu button::after {
-  content: '';
-  display: block;
-  width: 0;
-  height: 2px;
-  background: white;
-  transition: width 0.3s;
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: white;
+    transition: width 0.3s;
 }
 
 .barra_de_menu button:hover::after {
-  width: 100%;
+    width: 100%;
 }
-.toast-container {
+
+/* Estilo da notificação */
+.notification {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #4CAF50; /* Verde */
+    color: white;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    transition: opacity 0.5s, bottom 0.5s;
+}
+
+.notification.show {
+    opacity: 1;
+    bottom: 30px;
+}
+
+/* Estilo do modal */
+.modal {
+    display: none; /* Escondido por padrão */
+    position: fixed; /* Fixo na tela */
+    z-index: 1000; /* Em cima de outros elementos */
+    left: 0;
+    top: 0;
+    width: 100%; /* Largura total */
+    height: 100%; /* Altura total */
+    background-color: rgba(0, 0, 0, 0.5); /* Fundo preto com transparência */
+}
+
+.modal-content {
+    background-color: #fff; /* Fundo branco */
+    margin: 15% auto; /* Margem em cima e embaixo */
+    padding: 20px;
+    border-radius: 4px; /* Bordas arredondadas */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2); /* Sombra sutil */
+    max-width: 500px; /* Largura máxima do modal */
+    width: 90%; /* Largura do modal */
+}
+
+.close {
+    color: #888; /* Cor do texto do botão de fechar */
+    float: right;
+    font-size: 24px; /* Tamanho da fonte */
+    font-weight: bold; /* Peso da fonte */
+    transition: color 0.3s; /* Transição suave para a cor */
+}
+
+.close:hover,
+.close:focus {
+    color: #000; /* Cor do botão de fechar ao passar o mouse */
+    text-decoration: none; /* Sem sublinhado */
+    cursor: pointer; /* Cursor pointer ao passar o mouse */
+}
+/* Estilo geral para o contêiner dos quadros */
+#quadrosContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px; /* Espaçamento entre os quadros */
+  padding: 20px;
+}
+
+/* Estilo para cada quadro como botão */
+
+.quadro {
+  background: #ee0c0c; /* Cor de fundo suave */
+  border: 1px solid #ddd; /* Borda leve */
+  border-radius: 8px; /* Bordas arredondadas */
+  padding: 15px;
+  cursor: pointer; /* Indica que é clicável */
+  transition: background 0.3s, box-shadow 0.3s, transform 0.3s; /* Animações suaves */
+  width: 200px; /* Largura fixa para os quadros */
+  display: flex; /* Flexbox para centralizar conteúdo */
+  align-items: center; /* Centraliza verticalmente */
+  justify-content: center; /* Centraliza horizontalmente */
+  text-align: center; /* Centraliza o texto */
+  height: 100px; /* Altura fixa para o quadro (ajuste conforme necessário) */
+}
+
+/* Efeito de hover no quadro */
+.quadro:hover {
+  background-color: #e1e1e1; /* Altera a cor de fundo ao passar o mouse */
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3); /* Sombra para destaque */
+  transform: scale(1.05); /* Aumenta o tamanho do quadro levemente */
+}
+
+/* Estilo para o texto em destaque (título) */
+.quadro strong {
+  font-size: 1.5em; /* Aumenta o tamanho do título */
+  color: #f50c0c; /* Cor do texto do título */
+  display: block; /* Garante que o título ocupe a linha toda */
+  text-align: center; /* Centraliza o texto do título */
+}
+
+/* Efeito de hover no quadro */
+.quadro:hover {
+  background-color: #e96e6e; /* Altera a cor de fundo ao passar o mouse */
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3); /* Sombra para destaque */
+  transform: scale(1.05); /* Aumenta o tamanho do quadro levemente */
+}
+
+/* Estilo para o texto em destaque (título) */
+.quadro strong {
+  font-size: 1.2em; /* Aumenta o tamanho do título */
+  color: #ffffff; /* Cor do texto do título */
+  display: block; /* Garante que o título ocupe a linha toda */
+  text-align: center; /* Centraliza o texto do título */
+}
+
+
+
+/* Notificação (pode ser customizada conforme seu design) */
+.notification {
   position: fixed;
-  bottom: 0;
-  right: 0;
-  padding: 1rem;
-  z-index: 1050; /* Para garantir que fique acima de outros elementos */
+  bottom: 20px;
+  right: 20px;
+  background-color: #4caf50; /* Cor de fundo da notificação */
+  color: white; /* Cor do texto */
+  padding: 10px 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  transition: opacity 0.5s ease-in-out; /* Transição suave */
+  opacity: 0; /* Inicialmente invisível */
+  pointer-events: none; /* Impede interação */
 }
 
-.toast {
-  display: flex;
-  align-items: center;
-  width: 350px;
-  background-color: #28a745; /* Cor de fundo para sucesso */
-  color: #fff; /* Texto em branco */
-  border-radius: 0.375rem; /* Borda arredondada */
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+/* Exibir a notificação */
+.notification.show {
+  opacity: 1; /* Torna a notificação visível */
 }
 
-.toast-body {
-  flex: 1;
-  padding: 0.75rem 1rem;
-  font-size: 1rem;
-  font-weight: 400;
-}
-
-.btn-close {
-  background-color: transparent;
-  border: none;
-  color: #fff;
-  font-size: 1.25rem;
-  padding: 0;
-  cursor: pointer;
-}
-
-.btn-close:hover {
-  color: #ddd; /* Efeito de hover */
-}
-
-.d-flex {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.p-3 {
-  padding: 1rem;
-}
-
-.me-2 {
-  margin-right: 0.5rem;
-}
-
-.m-auto {
-  margin: auto;
-}
