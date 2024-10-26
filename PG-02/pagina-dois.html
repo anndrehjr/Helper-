@@ -22,8 +22,8 @@
         </button>
         <!-- Container para os botões de edição e exclusão -->
         <div id="btn-container" class="btn-container">
-            <button class="btn btn-warning btn-editar" id="btn-editar" disabled>Editar</button>
-            <button class="btn btn-danger btn-excluir" id="btn-excluir" disabled>Excluir</button>
+            <button class="btn" id="btn-editar" disabled>Editar</button>
+            <button class="btn" id="btn-excluir" disabled>Excluir</button>
         </div>
     </div>
     
@@ -39,19 +39,18 @@
     </div>
     <div id="quadrosContainer" class="quadros-container"></div>
     
-    <div id="novoQuadroForm" style="display: none;">
-        <input id="titulo" placeholder="Digite o título aqui..." maxlength="30"><br>
-        <textarea id="mensagem" rows="4" cols="30" placeholder="Digite sua mensagem aqui (máximo 200 caracteres)..." maxlength="200"></textarea><br>
-        <button id="botaoSalvarMensagem" onclick="salvarMensagem()">
+    <div id="novoQuadroModal" class="modal">
+        <div class="modal-content">
+          <span class="close-button" onclick="fecharModal()">&times;</span>
+          <input id="titulo" placeholder="Digite o título aqui..." maxlength="30"><br>
+          <textarea id="mensagem" rows="4" cols="30" placeholder="Digite sua mensagem aqui (máximo 200 caracteres)..." maxlength="200"></textarea><br>
+          <button id="botaoSalvarMensagem" onclick="salvarMensagem()">
             <i class="fas fa-save"></i> Salvar Mensagem
-        </button>
-        <p id="mensagemSalva"></p>
-    </div>
-
-    
-
-
-
+          </button>
+          <p id="mensagemSalva"></p>
+        </div>
+      </div>
+      
     <!-- Modal -->
     <div id="modalEditar" class="modal">
         <div class="modal-content">

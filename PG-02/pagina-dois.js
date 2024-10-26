@@ -58,15 +58,26 @@ function getSaudacao(periodo) {
 let selectedMessage = null;
 let clickTimeout = null; // Variável para controlar o tempo do clique
 
-// Função para mostrar o formulário
 function mostrarFormulario() {
-    document.getElementById('novoQuadroForm').style.display = 'block';
+    document.getElementById('novoQuadroModal').style.display = 'flex';
 }
 
-// Evento de teclado para esconder o formulário ao pressionar 'Esc'
+// Função para fechar o modal
+function fecharModal() {
+    document.getElementById('novoQuadroModal').style.display = 'none';
+}
+
+// Evento de teclado para esconder o modal ao pressionar 'Esc'
 document.addEventListener('keydown', (event) => {
     if (event.key === 'Escape') {
-        document.getElementById('novoQuadroForm').style.display = 'none';
+        fecharModal();
+    }
+});
+
+// Fecha o modal ao clicar fora do conteúdo
+window.addEventListener('click', (event) => {
+    if (event.target === document.getElementById('novoQuadroModal')) {
+        fecharModal();
     }
 });
 
