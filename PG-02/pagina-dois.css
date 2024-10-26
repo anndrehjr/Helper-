@@ -100,17 +100,7 @@ body {
 }
 
 /* Adicionando ícones usando Font Awesome */
-.Menu-Mensagens .btn-editar::before {
-    content: '\f044';
-    font-family: 'Font Awesome 5 Free';
-    font-weight: 900;
-}
 
-.Menu-Mensagens .btn-excluir::before {
-    content: '\f00d';
-    font-family: 'Font Awesome 5 Free';
-    font-weight: 900;
-}
 
 /* Estilos para o formulário de adicionar quadro */
 #novoQuadroForm {
@@ -248,10 +238,15 @@ footer {
 }
 /* Estilo geral para o contêiner dos quadros */
 #quadrosContainer {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 15px; /* Espaçamento entre os quadros */
-  padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 15px;
+    background-color: #fff;
+    border: 3px solid #bb170b;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 15px;
 }
 
 /* Estilo para cada quadro como botão */

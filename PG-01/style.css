@@ -6,6 +6,11 @@ body, html {
     background-color: #121212;
     color: #fff;
 }
+body.fade-out {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
 
 /* Animação de slide */
 @keyframes slideDown {

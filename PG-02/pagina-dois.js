@@ -70,7 +70,6 @@ document.addEventListener('keydown', (event) => {
     }
 });
 
-
 // Função para salvar a mensagem
 function salvarMensagem() {
     const titulo = document.getElementById('titulo').value;
@@ -84,7 +83,7 @@ function salvarMensagem() {
         // Cria o quadro com o título e adiciona a mensagem como atributo data
         const quadro = document.createElement('div');
         quadro.className = 'quadro';
-        quadro.innerHTML = `<strong>${titulo}</strong>`;
+        quadro.innerHTML = `<strong>${titulo}</strong>`; // Mantém apenas o título visível
         quadro.dataset.mensagem = mensagem; // Armazena a mensagem oculta no atributo data
 
         // Adiciona evento de clique para copiar a mensagem e selecionar
@@ -144,7 +143,7 @@ function selectMessage(element) {
 document.getElementById('btn-editar').addEventListener('click', () => {
     if (selectedMessage) {
         const titulo = selectedMessage.querySelector('strong').innerText;
-        const mensagem = selectedMessage.innerText.replace(titulo, '').trim();
+        const mensagem = selectedMessage.dataset.mensagem; // Obtém a mensagem oculta
 
         document.getElementById('novoTitulo').value = titulo;
         document.getElementById('novaMensagem').value = mensagem;
@@ -166,7 +165,8 @@ document.getElementById('salvarEdicao').addEventListener('click', () => {
         if (index !== -1) {
             mensagensSalvas[index] = { titulo: novoTitulo, mensagem: novaMensagem };
             localStorage.setItem('mensagensSalvas', JSON.stringify(mensagensSalvas));
-            selectedMessage.innerHTML = `<strong>${novoTitulo}</strong><br>${novaMensagem}`; // Atualiza a mensagem no quadro
+            selectedMessage.innerHTML = `<strong>${novoTitulo}</strong>`; // Atualiza apenas o título no quadro
+            selectedMessage.dataset.mensagem = novaMensagem; // Atualiza a mensagem oculta
             document.getElementById('modalEditar').style.display = 'none'; // Fechar modal após salvar
             selectedMessage.classList.remove('selected');
         }
@@ -213,29 +213,25 @@ window.onload = function() {
     mensagensSalvas.forEach(({ titulo, mensagem }) => {
         const quadro = document.createElement('div');
         quadro.className = 'quadro';
-        quadro.innerHTML = `<strong>${titulo}</strong><br>${mensagem}`;
-        quadro.dataset.mensagem = mensagem; // Armazena a mensagem oculta no atributo data
-        quadro.onclick = () => {
-            // Copia a mensagem na primeira vez que clicar
-            const mensagemOculta = quadro.dataset.mensagem; // Obtém a mensagem oculta
-            navigator.clipboard.writeText(mensagemOculta) // Copia a mensagem
-                .then(() => {
-                    showNotification('Mensagem copiada!'); // Notifica que a mensagem foi copiada
-                })
-                .catch(err => {
-                    console.error('Erro ao copiar a mensagem: ', err);
-                });
+        quadro.innerHTML = `<strong>${titulo}</strong>`;
+        quadro.dataset.mensagem = mensagem;
 
-            // Configura o timeout para verificar se o segundo clique ocorre
+        // Adiciona evento de clique para copiar a mensagem
+        quadro.onclick = () => {
+            const mensagemOculta = quadro.dataset.mensagem;
+            navigator.clipboard.writeText(mensagemOculta)
+                .then(() => showNotification('Mensagem copiada!'))
+                .catch(err => console.error('Erro ao copiar a mensagem: ', err));
+
+            // Controle de clique
             if (clickTimeout) {
-                clearTimeout(clickTimeout); // Limpa o timeout se o segundo clique acontecer
-                clickTimeout = null; // Reseta o timeout
-                selectMessage(quadro); // Seleciona a mensagem no segundo clique
+                clearTimeout(clickTimeout);
+                clickTimeout = null;
+                selectMessage(quadro);
             } else {
-                // Se não for o segundo clique, define um novo timeout
                 clickTimeout = setTimeout(() => {
-                    clickTimeout = null; // Reseta o timeout se não houver segundo clique
-                }, 300); // Ajuste o tempo conforme necessário
+                    clickTimeout = null;
+                }, 300);
             }
         };
 

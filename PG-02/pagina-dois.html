@@ -13,18 +13,20 @@
 <body>
     <div class="barra_de_menu">
         <!-- Botão para voltar -->
-        <button id="voltar-btn" onclick="window.location.href = '../PG-01/index.html';">
-            <i class="fas fa-arrow-left"></i> <!-- Ícone de seta para voltar -->
+        <button id="voltar-btn" onclick="window.location.href = '../PG-01/index.html';" class="btn">
+            <i class="fas fa-arrow-left"></i>
         </button>
         <!-- Botão para adicionar quadro -->
         <button id="adicionarQuadroBtn" class="btn" onclick="mostrarFormulario()">
             <i class="fas fa-plus"></i> Adicionar Quadro
         </button>
+        <!-- Container para os botões de edição e exclusão -->
         <div id="btn-container" class="btn-container">
             <button class="btn btn-warning btn-editar" id="btn-editar" disabled>Editar</button>
             <button class="btn btn-danger btn-excluir" id="btn-excluir" disabled>Excluir</button>
         </div>
     </div>
+    
 
     <div class="Menu-Mensagens" id="menuMensagens">
         <!-- Mensagens com ícones -->
