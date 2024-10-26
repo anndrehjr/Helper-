@@ -1,0 +1,24 @@
+#!/bin/bash
+
+#arquivos de log
+DIR="/opt/issabel/dialer"
+
+# Remove todos os arquivos que começam com dialerd.log*
+rm -f "$DIR"/dialerd.log*
+
+# Log da execução
+echo "Arquivos de log deletados em $(date)" >> /var/log/deleta_logs.log
+
+
+
+
+
+nano /opt/issabel/deleta_logs.sh  #Aonde  script esta  
+
+
+chmod +x /opt/issabel/deleta_logs.sh #executa o script
+
+
+touch /opt/issabel/dialer/dialerd.log3
+touch /opt/issabel/dialer/dialerd.log2
+touch /opt/issabel/dialer/dialerd.log1
