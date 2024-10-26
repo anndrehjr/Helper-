@@ -21,7 +21,7 @@ function copiarMensagem(periodo) {
                 mensagem = 'Como posso ajudar?';
                 break;
             case 'explica':
-                mensagem = 'Não consegui entender direito, poderia me explicar melhor? Se preferir pode mandar áudio.?';
+                mensagem = 'Não consegui entender direito, poderia me explicar melhor? Se preferir pode mandar áudio.';
                 break;
             case 'encerrar':
                 mensagem = 'Vou estar encerrando o chat aqui então, qualquer coisa estamos à disposição, tenha um ótimo dia! 😊';
@@ -34,21 +34,16 @@ function copiarMensagem(periodo) {
             mensagem = `${saudacao} Aqui é o ${nome} do suporte da ${empresa}, tudo bem?`;
         }
 
-        // Copiar a mensagem
-        var elementoTemporario = document.createElement('textarea');
-        elementoTemporario.value = mensagem;
-
-        document.body.appendChild(elementoTemporario);
-        elementoTemporario.select();
-        document.execCommand('copy');
-        document.body.removeChild(elementoTemporario);
-
-        alert('Mensagem copiada para a área de transferência!');
+        // Copiar a mensagem usando a API moderna
+        navigator.clipboard.writeText(mensagem).then(() => {
+            alert('Mensagem copiada para a área de transferência!');
+        }).catch(err => {
+            alert('Erro ao copiar a mensagem: ' + err);
+        });
     } else {
         alert('Por favor, preencha o nome e o nome da empresa antes de copiar a mensagem!');
     }
 }
-
 
 function mostrarFormulario() {
     document.getElementById('novoQuadroForm').style.display = 'block';
@@ -57,7 +52,8 @@ function mostrarFormulario() {
 function salvarMensagem() {
     var titulo = document.getElementById('titulo').value;
     var mensagem = document.getElementById('mensagem').value;
-    if (titulo.length > 0 && mensagem.length > 0 && mensagem.length <= 200) {
+
+    if (titulo.length > 0 && titulo.length <= 30 && mensagem.length > 0 && mensagem.length <= 200) {
         var mensagensSalvas = JSON.parse(localStorage.getItem('mensagensSalvas')) || [];
         mensagensSalvas.push({ titulo: titulo, mensagem: mensagem });
         localStorage.setItem('mensagensSalvas', JSON.stringify(mensagensSalvas));
@@ -105,20 +101,17 @@ function adicionarBotaoMensagem(titulo, mensagem) {
 }
 
 function copiarMensagemPersonalizada(mensagem) {
-    var elementoTemporario = document.createElement('textarea');
-    elementoTemporario.value = mensagem;
-
-    document.body.appendChild(elementoTemporario);
-    elementoTemporario.select();
-    document.execCommand('copy');
-    document.body.removeChild(elementoTemporario);
-
-    alert('Mensagem copiada para a área de transferência!');
+    navigator.clipboard.writeText(mensagem).then(() => {
+        alert('Mensagem copiada para a área de transferência!');
+    }).catch(err => {
+        alert('Erro ao copiar a mensagem: ' + err);
+    });
 }
 
 function editarMensagem(tituloAntigo, mensagemAntiga, botao) {
     var novoTitulo = prompt('Edite o título:', tituloAntigo);
     var novaMensagem = prompt('Edite a mensagem:', mensagemAntiga);
+
     if (novoTitulo !== null && novaMensagem !== null && novoTitulo.length <= 30 && novaMensagem.length <= 200) {
         var mensagensSalvas = JSON.parse(localStorage.getItem('mensagensSalvas')) || [];
         var index = mensagensSalvas.findIndex(msg => msg.titulo === tituloAntigo && msg.mensagem === mensagemAntiga);
@@ -147,4 +140,4 @@ window.onload = function() {
     mensagensSalvas.forEach(function(mensagemObj) {
         adicionarBotaoMensagem(mensagemObj.titulo, mensagemObj.mensagem);
     });
-}
+};
