@@ -47,7 +47,7 @@ function salvarValores(event) {
             console.log('Redirecionando para a página...');
 
             // Redireciona para outra página após o alerta
-            window.location.href = '/helper/PG-02/pagina-dois.html'; // Substitua pela URL desejada
+            window.location.href = '/PG-02/pagina-dois.html'; // Substitua pela URL desejada
         }
     });
 
